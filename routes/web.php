@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/workers', function () {
+  dd('dfgdfgdfg'); //die dump
+  return 'this workers is from routes';
+});
