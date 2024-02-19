@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\WorkerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/workers', function () {
-  dd('dfgdfgdfg'); //die dump
-  return 'this workers is from routes';
-});
+// Route::get('/workers', function () {
+//   dd('dfgdfgdfg'); //die dump
+//   return 'this workers is from routes';
+// });
+
+Route::get('/workers', [WorkerController::class, 'index']);
+Route::get('/workers/show', [WorkerController::class, 'show']);
