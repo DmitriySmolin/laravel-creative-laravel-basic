@@ -9,20 +9,21 @@
 </head>
 <body>
 Create page
-    <div>
-        <form action="">
-            <div style="margin-bottom: 15px"><input type="text" name="name" placeholder="name"></div>
-            <div style="margin-bottom: 15px"><input type="text" name="surname" placeholder="surname"></div>
-            <div style="margin-bottom: 15px"><input type="email" name="email" placeholder="email"></div>
-            <div style="margin-bottom: 15px"><input type="number" name="age" placeholder="age"></div>
-            <div style="margin-bottom: 15px"><textarea name="description" placeholder="description"></textarea></div>
-            <div style="margin-bottom: 15px">
-                <input id="isMarried" type="checkbox" name="is_married">
-                <label for="is_married">Is Married</label>
-            </div>
-            <div><input type="submit" value="Добавить"></div>
-        </form>
-    </div>
-    <hr>
+<div>
+    <form action="{{route('worker.store')}}" method="POST">
+        @csrf
+        <div style="margin-bottom: 15px"><input type="text" name="name" placeholder="name"></div>
+        <div style="margin-bottom: 15px"><input type="text" name="surname" placeholder="surname"></div>
+        <div style="margin-bottom: 15px"><input type="email" name="email" placeholder="email"></div>
+        <div style="margin-bottom: 15px"><input type="number" name="age" placeholder="age"></div>
+        <div style="margin-bottom: 15px"><textarea name="description" placeholder="description"></textarea></div>
+        <div style="margin-bottom: 15px">
+            <input id="isMarried" type="checkbox" name="is_married">
+            <label for="is_married">Is Married</label>
+        </div>
+        <div><input type="submit" value="Добавить"></div>
+    </form>
+</div>
+<hr>
 </body>
 </html>
