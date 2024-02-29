@@ -54,6 +54,11 @@ class WorkerController extends Controller
         return redirect()->route('worker.create');
     }
 
+    public function edit(Worker $worker)
+    {
+        return view('worker.edit', compact('worker'));
+    }
+
     public function update()
     {
 //     return 'this show action of Worker Controller';

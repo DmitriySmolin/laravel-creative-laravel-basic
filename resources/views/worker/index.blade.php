@@ -23,6 +23,9 @@ Index
         <div>
             <a href="{{route('worker.show', $worker->id)}}">Просмотреть</a>
         </div>
+        <div>
+            <a href="{{route('worker.edit', $worker->id)}}">Редактировать</a>
+        </div>
     </div>
     <hr>
 @endforeach
