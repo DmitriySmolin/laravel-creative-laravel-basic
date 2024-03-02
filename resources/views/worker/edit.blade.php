@@ -8,10 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-Create page
+Edit page
 <div>
-    <form action="{{route('worker.store')}}" method="POST">
+    <form action="{{route('worker.update', $worker->id)}}" method="POST">
         @csrf
+        @method('PATCH')
         <div style="margin-bottom: 15px">
             <input type="text" name="name" placeholder="name" value="{{$worker->email}}">
         </div>

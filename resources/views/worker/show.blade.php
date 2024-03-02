@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-Index
+Show page
 <hr>
     <div>
         <div>Name:{{$worker->name}}</div>

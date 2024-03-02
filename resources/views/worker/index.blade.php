@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-Index
+Index page
 <hr>
 <a href="{{route('worker.create')}}">Добавить</a>
 <hr>
