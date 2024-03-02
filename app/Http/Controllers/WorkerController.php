@@ -52,7 +52,7 @@ class WorkerController extends Controller
         $data = $request->validated();
         $data['is_married'] = isset($data['is_married']);
         Worker::create($data);
-        return redirect()->route('worker.create');
+        return redirect()->route('worker.index');
     }
 
     public function edit(Worker $worker)
