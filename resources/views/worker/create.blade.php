@@ -10,7 +10,7 @@
 <body>
 Create page
 <div>
-    <form action="{{route('worker.store')}}" method="POST">
+    <form action="{{route('worker.store',[],false)}}" method="POST">
         @csrf
         <div style="margin-bottom: 15px">
             <input type="text" name="name" placeholder="name" value="{{old('name')}}">

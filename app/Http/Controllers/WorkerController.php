@@ -4,14 +4,47 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Worker\StoreRequest;
 use App\Http\Requests\Worker\UpdateRequest;
+use App\Http\Requests\Worker\IndexRequest;
 use Illuminate\Http\Request;
 use App\Models\Worker;
 
 class WorkerController extends Controller
 {
-    public function index()
+    public function index(IndexRequest $request)
     {
-        $workers = Worker::paginate(1);
+        $data = $request->validated();
+        $workerQuery = Worker::query();
+      
+        if(isset($data['name'])) {
+          $workerQuery->where('name','like',"%{$data['name']}%");
+        }
+
+      if(isset($data['surname'])) {
+        $workerQuery->where('surname','like',"%{$data['surname']}%");
+      }
+
+      if(isset($data['email'])) {
+          $workerQuery->where('email','like',"%{$data['email']}%");
+      }
+
+      if(isset($data['from'])) {
+        $workerQuery->where('age','>',$data['from']);
+      }
+
+      if(isset($data['to'])) {
+        $workerQuery->where('age','<',$data['to']);
+      }
+
+      if(isset($data['description'])) {
+          $workerQuery->where('description','like',"%{$data['description']}%");
+      }
+
+      if(isset($data['is_married'])) {
+          $workerQuery->where('is_married', true);
+      }
+      
+        $workers = $workerQuery->paginate(4);
+        $workers->setPath(url('https://cc80f3ae-4328-40ba-8d8d-b2d594a8052a-00-31odv7pgvrjcu.pike.replit.dev/workers')); 
         return view('worker.index', compact('workers'));
     }
 
@@ -32,7 +65,7 @@ class WorkerController extends Controller
 
     public function create()
     {
-//        $worker = [
+//       $worker = [
 //            'name' => 'Mark',
 //            'surname' => 'Markov',
 //            'email' => 'markov@mail.ru',
