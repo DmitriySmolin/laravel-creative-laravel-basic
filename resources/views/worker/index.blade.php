@@ -1,18 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-Index page
-<hr>
-<a href="{{route('worker.create',[],false)}}">Добавить</a>
-<hr>
+@extends('layout.main')
+@section('content')
 <div>
+  <hr>
+  <div>
+    <a href="{{route('worker.create',[],false)}}">Добавить</a>
+  </div>
+  <hr>
+  <div>
   <form action="{{route('worker.index',[],false)}}">
     <input type="text" name="name" placeholder="name" value="{{request()->get('name')}}" />
     <input type="text" name="surname" placeholder="surname" value="{{request()->get('surname')}}" />
@@ -49,15 +43,9 @@ Index page
             </form>
         </div>
     </div>
-    <hr>
 @endforeach
 <div class="my-nav">
     {{$workers->withQueryString()->links()}}
 </div>
-<style>
-    .my-nav svg {
-        width: 25px;
-    }
-</style>
-</body>
-</html>
+</div>
+@endsection
