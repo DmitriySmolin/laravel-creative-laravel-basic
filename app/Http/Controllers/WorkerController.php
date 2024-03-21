@@ -15,7 +15,7 @@ class WorkerController extends Controller
         $data = $request->validated();
         $workerQuery = Worker::query();
       
-        if(isset($data['name'])) {
+      if(isset($data['name'])) {
           $workerQuery->where('name','like',"%{$data['name']}%");
         }
 
