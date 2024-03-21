@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+
 class DevCommand extends Command
 {
     /**
@@ -27,6 +28,15 @@ class DevCommand extends Command
      */
     public function handle()
     {
-        dd(111111);
+        $worker = [
+          'name' => 'Ivan',
+          'surname' => 'Ivanov',
+          'email' => 'ivan@mail.ru',
+          'age' => 20,
+          'description' => 'Some description',
+          'is_married' => false
+        ]
+
+      Worker::create($worker);
     }
 }
